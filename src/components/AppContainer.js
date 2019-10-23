@@ -7,7 +7,7 @@ export class AppContainer extends React.Component {
 
 	render() {
 		return <div>
-			
+			Teste
 		</div>
 	}
 }
