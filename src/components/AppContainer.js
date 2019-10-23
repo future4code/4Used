@@ -1,4 +1,5 @@
 import React from 'react'
+import {ContainerCadastro} from './CadastroDeProdutos/ContainerCadastro'
 
 export class AppContainer extends React.Component {
 	constructor(props) {
@@ -7,7 +8,7 @@ export class AppContainer extends React.Component {
 
 	render() {
 		return <div>
-			
+			<ContainerCadastro></ContainerCadastro>
 		</div>
 	}
 }
