@@ -2,11 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import 'typeface-roboto';
 import Logo4used from './4used.png';
-import TesteCondicional from '../TesteCondicional';
-import TesteCondicional2 from '../TesteCondicional2';
-
+import Sacola from './sacola.png'
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/core/styles';
 
 // import ContainerCadastro from './ContainerCadastro/ContainerCadastro.js'
+
+const StyledBadge1 = withStyles(theme => ({
+	badge: {
+		right: -3,
+		border: '1px solid black',
+		backgroundColor: 'red',
+		padding: '0 4px',
+		color: 'white',
+		fontWeight: 'bold',
+		marginTop: '10px',
+		marginRight: '3px',
+	},
+}))(Badge);
+
+
 
 const StyledHeader = styled.header`
 	background-color: #FF9945;
@@ -66,6 +82,10 @@ const StyledButton = styled.button`
 		background-color: #76767F;
 	}
 `
+const StyledBagImage = styled.img`
+	cursor: pointer;
+`
+
 
 class Header extends React.Component {
 	constructor(props) {
@@ -74,7 +94,8 @@ class Header extends React.Component {
 			searchValue: "",
 			currentPageHome: true,
 			currentPageSale: false,
-			textButton: "VOU VENDER!"
+			textButton: "VOU VENDER!",
+			badgeNumber: 2,
 		}
 	}
 
@@ -111,16 +132,14 @@ class Header extends React.Component {
 						<StyledButton
 							onClick={this.onClickButton}
 						>{this.state.textButton}
-					</StyledButton>
+						</StyledButton>
 					</ContainerHeader>
+					<IconButton aria-label="cart">
+						<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
+							<StyledBagImage src={Sacola} />
+						</StyledBadge1>
+					</IconButton>
 				</StyledHeader>
-				{this.state.currentPageHome
-					&& <TesteCondicional/>
-				}
-				{this.state.currentPageSale
-					&& <TesteCondicional2/>
-				}
-
 			</React.Fragment>
 		)
 	}
