@@ -62,7 +62,6 @@ export class CadastroImage extends React.Component {
 		}
 	}
 
-
 	onChangeUrl = (event) => {
 		this.setState({ urlValue: event.target.value })
 
@@ -73,6 +72,15 @@ export class CadastroImage extends React.Component {
 		listImageProduct.push(this.state.urlValue);
 		this.setState({ listImageProduct });
 		this.state.urlValue = "";
+		
+	}
+
+	stopInsertPhoto = () => {
+		if(this.state.urlValue === ""){
+			window.alert("Insira uma URL válida")
+		} else {
+			this.onClickInsertPhotoProduct();
+		}
 	}
 
 	handleContinueBtn = () => {
@@ -107,7 +115,7 @@ export class CadastroImage extends React.Component {
 				<SendButton
 					variant="contained"
 					color="secondary"
-					onClick={this.onClickInsertPhotoProduct}
+					onClick={this.stopInsertPhoto}
 					disabled={this.state.listImageProduct.length >= 3}
 				>
 					Adicionar Fotos
