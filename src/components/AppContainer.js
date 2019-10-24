@@ -1,14 +1,21 @@
 import React from 'react'
-import {ContainerCadastro} from './CadastroDeProdutos/ContainerCadastro'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+
 
 export class AppContainer extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
+		this.state = {
+			
+		}
 	}
 
 	render() {
-		return <div>
-			<ContainerCadastro></ContainerCadastro>
-		</div>
+		return 
+      <div>
+        <Header/>	
+			  <Footer/>		
+      <div/>
 	}
 }
