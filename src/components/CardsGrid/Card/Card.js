@@ -55,8 +55,8 @@ class Cards extends React.Component {
 
 			<StyledCard>
 				<StyledCardMedia
-					image={this.props.product.img}
-					title="Nome do Produto"
+					image={this.props.product.photos[0]}
+					title='camisa'
 				/>
 				<CardHeaderStyled 
 					disableTypography
