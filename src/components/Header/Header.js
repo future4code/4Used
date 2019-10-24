@@ -9,6 +9,7 @@ import Drawer from '@material-ui/core/Drawer';
 import { withStyles } from '@material-ui/core/styles';
 import { ContainerCadastro } from '../CadastroDeProdutos/ContainerCadastro';
 
+
 const StyledBadge1 = withStyles(theme => ({
 	badge: {
 		right: -3,
@@ -173,6 +174,8 @@ class Header extends React.Component {
 						</div>
 					</IconButton>
 				</StyledHeader>
+				{this.state.currentPageSale
+				&& <ContainerCadastro/>}
 			</React.Fragment>
 		)
 	}
