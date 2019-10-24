@@ -49,7 +49,9 @@ const SendButton = styled(Button)`
 	margin-top: 50px;
 `
 
-
+const StyledButton = styled(Button)`
+	margin-top: 50px;
+`
 
 export class CadastroImage extends React.Component {
 	constructor(props) {
@@ -60,24 +62,38 @@ export class CadastroImage extends React.Component {
 		}
 	}
 
-
 	onChangeUrl = (event) => {
 		this.setState({ urlValue: event.target.value })
+
 	}
 
 	onClickInsertPhotoProduct = () => {
 		const { listImageProduct } = this.state;
 		listImageProduct.push(this.state.urlValue);
-		this.setState({listImageProduct});
-		console.log(this.state.listImageProduct)
+		this.setState({ listImageProduct });
+		this.state.urlValue = "";
+		
 	}
 
+	stopInsertPhoto = () => {
+		if(this.state.urlValue === ""){
+			window.alert("Insira uma URL válida")
+		} else {
+			this.onClickInsertPhotoProduct();
+		}
+	}
+
+	handleContinueBtn = () => {
+		if (this.state.listImageProduct.length) {
+			this.props.onSend(this.state.listImageProduct)
+		}
+	}
 
 	render() {
-			const productPhoto = this.state.listImageProduct.map((image)=>{
-				return (<PhotoProduct src={image}/>)
+		const productPhoto = this.state.listImageProduct.map((image) => {
+			return (<PhotoProduct src={image} />)
 		})
-			
+
 		return (
 			<CadastroImageContainer>
 				<Title>Eu quero ibagens!</Title>
@@ -99,10 +115,20 @@ export class CadastroImage extends React.Component {
 				<SendButton
 					variant="contained"
 					color="secondary"
-					onClick={this.onClickInsertPhotoProduct}
+					onClick={this.stopInsertPhoto}
+					disabled={this.state.listImageProduct.length >= 3}
 				>
-					Ver Fotos
+					Adicionar Fotos
 				</SendButton>
+				<div>
+					<StyledButton
+						variant="contained"
+						color="secondary"
+						onClick={this.handleContinueBtn}
+					>
+						Continuar
+			</StyledButton>
+				</div>
 			</CadastroImageContainer>
 		)
 	}
