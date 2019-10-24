@@ -7,6 +7,7 @@ import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import Drawer from '@material-ui/core/Drawer';
 import { withStyles } from '@material-ui/core/styles';
+import { ContainerCadastro } from '../CadastroDeProdutos/ContainerCadastro';
 
 const StyledBadge1 = withStyles(theme => ({
 	badge: {
@@ -127,7 +128,7 @@ class Header extends React.Component {
 	render() {
 		const sideList = (
 			<StyledDrawer>
-				
+
 			</StyledDrawer>
 		);
 
@@ -135,9 +136,9 @@ class Header extends React.Component {
 			<React.Fragment>
 				<StyledHeader>
 					<ContainerHeader>
-						
+
 						<StyledLogo src={Logo4used} alt="Logo 4used" />
-						
+
 						<StyledInput
 							type="text"
 							placeholder="Pesquise pela loja"
@@ -147,8 +148,8 @@ class Header extends React.Component {
 
 						<StyledButton
 							onClick={this.onClickButton}
-						>	
-						{this.state.textButton}
+						>
+							{this.state.textButton}
 						</StyledButton>
 					</ContainerHeader>
 
@@ -172,6 +173,8 @@ class Header extends React.Component {
 						</div>
 					</IconButton>
 				</StyledHeader>
+				{this.state.currentPageSale
+					&& <ContainerCadastro/>}
 			</React.Fragment>
 		)
 	}

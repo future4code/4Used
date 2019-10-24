@@ -2,21 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
+import 'typeface-roboto';
 
-const CadastroImageContainer = styled.div `
+
+
+const Title = styled.h1`
+	font-size: 4rem;
+`
+
+const CadastroImageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 `
 
-const ImagesContainer = styled.div `
+const ImagesContainer = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 `
 
-const ImageBorder = styled.section `
+const ImageBorder = styled.section`
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	height: 250px;
 	width: 250px;
 	margin: 20px;
@@ -24,9 +34,15 @@ const ImageBorder = styled.section `
 	border-color: grey;
 	border-style: dotted;
 `
-const Input = styled.input `
+const PhotoProduct = styled.img`
+	height: 100%;
+	width: 100%;
+	border: 2px solid black;
+`
+
+const Input = styled.input`
 	width: 50%;
-	margin-top: 50px;
+	height: 60px;
 `
 
 const SendButton = styled(Button)`
@@ -34,36 +50,58 @@ const SendButton = styled(Button)`
 `
 
 
+
 export class CadastroImage extends React.Component {
 	constructor(props) {
-		super(props); 
+		super(props);
 		this.state = {
-
+			urlValue: "",
+			listImageProduct: [],
 		}
 	}
 
-	render () {
+
+	onChangeUrl = (event) => {
+		this.setState({ urlValue: event.target.value })
+	}
+
+	onClickInsertPhotoProduct = () => {
+		const { listImageProduct } = this.state;
+		listImageProduct.push(this.state.urlValue);
+		this.setState({listImageProduct});
+		console.log(this.state.listImageProduct)
+	}
+
+
+	render() {
+			const productPhoto = this.state.listImageProduct.map((image)=>{
+				return (<PhotoProduct src={image}/>)
+		})
+			
 		return (
 			<CadastroImageContainer>
-				<h1>Eu quero ibagens!</h1>
+				<Title>Eu quero ibagens!</Title>
 				<p>
-					Cadastre imagens do que você quer vender, 
+					Cadastre imagens do que você quer vender,
 					para que as pessoas possam ver o quão legal é o seu produto!
 				</p>
 				<ImagesContainer>
-					<ImageBorder></ImageBorder>
-					<ImageBorder></ImageBorder>
-					<ImageBorder></ImageBorder>
+					<ImageBorder>{productPhoto[0]}</ImageBorder>
+					<ImageBorder>{productPhoto[1]}</ImageBorder>
+					<ImageBorder>{productPhoto[2]}</ImageBorder>
 				</ImagesContainer>
-				<Input 
+				<Input
 					type="text"
 					placeholder="URL da imagem"
+					value={this.state.urlValue}
+					onChange={this.onChangeUrl}
 				/>
 				<SendButton
-					variant="contained" 
-					color="secondary" 
+					variant="contained"
+					color="secondary"
+					onClick={this.onClickInsertPhotoProduct}
 				>
-					Enviar
+					Ver Fotos
 				</SendButton>
 			</CadastroImageContainer>
 		)
