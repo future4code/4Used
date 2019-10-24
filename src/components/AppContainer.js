@@ -16,8 +16,7 @@ export class AppContainer extends React.Component {
 			<div>
 				<Header />
 				<Footer />
-				</div>
-
+			</div>
 		)
 	}
 }
