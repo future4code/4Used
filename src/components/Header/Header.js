@@ -173,8 +173,6 @@ class Header extends React.Component {
 						</div>
 					</IconButton>
 				</StyledHeader>
-				{this.state.currentPageSale
-					&& <ContainerCadastro/>}
 			</React.Fragment>
 		)
 	}
