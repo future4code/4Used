@@ -11,20 +11,21 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import Button from '@material-ui/core/Button';
 
-const CadastroDadosContainer = styled.div `
+const CadastroDadosContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 70%;
 `
 
-const NameAndValue = styled.div `
+const NameAndValue = styled.div`
 	width: 40vw;
 	display:flex;
 	justify-content: space-around;
 `
 
-const DescriptionAndCategory = styled.div `
+const DescriptionAndCategory = styled.div`
 	width: 40vw;
 	display:flex;
 	justify-content: space-around;
@@ -34,10 +35,11 @@ const InputName = styled(TextField)`
 `
 
 const InputDescription = styled(TextField)`
+	
 `
 
 const StyledSelect = styled(Select)`
-	width: 200px;
+	width: 300px;
 `
 
 const StyledFormControl = styled(FormControl)`
@@ -50,52 +52,81 @@ const SendButton = styled(Button)`
 
 export class CadastroDados extends React.Component {
 	constructor(props) {
-		super(props); 
+		super(props);
 		this.state = {
-			amount: '',
+			nameProduct: '',
+			priceProduct: '',
+			descriptionProduct: '',
 			category: '',
 			used: '',
+			paymentMethod: '',
+			installments: '',
 		}
 	}
 
-	amountChange = prop => event => {
-		this.setState({ [prop]: event.target.value });
+
+	onChangeNameProduct = (event) => {
+		this.setState({ nameProduct: event.target.value });
+	}
+
+	onChangePriceProduct = (event) => {
+		this.setState({ priceProduct: event.target.value });
 	};
 
-	categoryChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
+	onChangeDescripitonProduct = (event) => {
+		this.setState({ descriptionProduct: event.target.value })
+	}
+
+	onChangeCategoryProduct = (event) => {
+		this.setState({ category: event.target.value });
 	};
 
-	usedChange = event => {
+	onChangePaymentMethod = (event) => {
+		this.setState({ paymentMethod: event.target.value })
+	}
+
+	onChangeInstallments = (event) => {
+		this.setState({ installments: event.target.value })
+	}
+
+	onChangeUseProduct = (event) => {
 		this.setState({ used: event.target.value });
 	};
 
-	render () {
+
+	render() {
+
 		return (
 			<CadastroDadosContainer>
 				<h1>Nos fale mais sobre seu produto!</h1>
 				<p>
-					Tá na hora de vender o peixe! Coloque informações do seu produto. 
-					Quanto mais detalhado, mais fácil de vender. 
+					Tá na hora de vender o peixe! Coloque informações do seu produto.
+					Quanto mais detalhado, mais fácil de vender.
 				</p>
 				<NameAndValue>
 					<InputName
 						label="Nome do produto"
+						value={this.state.nameProduct}
+						onChange={this.onChangeNameProduct}
 					/>
 					<Input
-						id="adornment-amount"
-						value={this.state.amount}
-						onChange={this.amountChange('amount')}
+						type="number"
+						id="adornment-price"
+						value={this.state.priceProduct}
+						onChange={this.onChangePriceProduct}
 						startAdornment={<InputAdornment position="start">$</InputAdornment>}
 					/>
 				</NameAndValue>
 				<DescriptionAndCategory>
 					<InputDescription
 						label="Descrição do produto"
+						value={this.state.descriptionProduct}
+						onChange={this.onChangeDescripitonProduct}
 					/>
 					<StyledSelect
 						value={this.state.category}
-						onChange={this.categoryChange}
+						onChange={this.onChangeCategoryProduct}
+						startAdornment={<InputAdornment position="start">Categoria</InputAdornment>}
 					>
 						<MenuItem value=""></MenuItem>
 						<MenuItem value={'Roupas'}>Roupas</MenuItem>
@@ -104,12 +135,31 @@ export class CadastroDados extends React.Component {
 						<MenuItem value={'Bugigangas'}>Bugigangas</MenuItem>
 					</StyledSelect>
 				</DescriptionAndCategory>
-				<StyledFormControl component="fieldset">	
+
+				<StyledSelect
+					value={this.state.paymentMethod}
+					onChange={this.onChangePaymentMethod}
+					startAdornment={<InputAdornment position="start">Forma de Pagamento</InputAdornment>}
+				>
+					<MenuItem value="" label="Forma de pagamento"></MenuItem>
+					<MenuItem value={'Card'}>Cartão de Crédito</MenuItem>
+					<MenuItem value={'Cash'}>Boleto Bancário</MenuItem>
+				</StyledSelect>
+
+				<Input
+					type="number"
+					id="adornment-installments"
+					value={this.state.installments}
+					onChange={this.onChangeInstallments}
+					startAdornment={<InputAdornment position="start">Parcelas</InputAdornment>}
+				/>
+
+				<StyledFormControl component="fieldset">
 					<RadioGroup
 						aria-label="position"
 						name="position"
 						value={this.state.used}
-						onChange={this.usedChange}
+						onChange={this.onChangeUseProduct}
 						row
 					>
 						<FormControlLabel
@@ -127,11 +177,11 @@ export class CadastroDados extends React.Component {
 					</RadioGroup>
 				</StyledFormControl>
 				<SendButton
-					variant="contained" 
-					color="secondary" 
+					variant="contained"
+					color="secondary"
 				>
 					Enviar
-				</SendButton>				
+				</SendButton>
 			</CadastroDadosContainer>
 		)
 	}

@@ -23,39 +23,43 @@ export class ContainerCadastro extends React.Component {
 
 	changeUI = () => {
 		this.setState({ cadastroImageView: !this.state.cadastroImageView })
-		this.createProduct();
+		
 	}
 
-	// createProduct = (name, description, price, paymentMthod, category, photos, installments) => {
-  //   const product = {
-  //     name: name,
-  //     description: description,
-  //     price: price,
-  //     paymentMthod: paymentMthod,
-  //     category: category,
-  //     photos: photos,
-  //     installments: installments,
-  //   }
+// 	createProduct = (name, description, price, paymentMthod, category, photos, installments) => {
+//     const product = {
+//       name: name,
+//       description: description,
+//       price: price,
+//       paymentMthod: paymentMthod,
+//       category: category,
+//       photos: photos,
+//       installments: installments,
+//     }
 
-  //   axios
-  //     .post(
-  //       "https://us-central1-missao-newton.cloudfunctions.net/fourUsed/products",
-  //       product,
-  //     )
-  //     .then((response) => {
-  //       window.alert("Usuário criado!", response)
-  //       window.location.reload()
-  //     })
-  //     .catch((error) => {
-  //       window.alert("Ops, ocorreu um erro. Tente de novo!", error)
-  //     })
-  // }
+//     axios
+//       .post(
+//         "https://us-central1-missao-newton.cloudfunctions.net/fourUsed/products",
+//         product,
+//       )
+//       .then((response) => {
+//         window.alert("Usuário criado!", response)
+//         window.location.reload()
+//       })
+//       .catch((error) => {
+//         window.alert("Ops, ocorreu um erro. Tente de novo!", error)
+//       })
+//   }
 
 	render() {
 		const atualUI = this.state.cadastroImageView ? (
 			<CadastroImage></CadastroImage>
 		) : (
-				<CadastroDados></CadastroDados>)
+				<CadastroDados
+				
+				
+				
+				></CadastroDados>)
 
 		return (
 			<MainContainer>
