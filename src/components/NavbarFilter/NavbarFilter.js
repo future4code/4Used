@@ -54,7 +54,7 @@ const theme = createMuiTheme({
 })
 
 
-export class NavBarFilter extends React.Component {
+export class NavbarFilter extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -120,4 +120,4 @@ export class NavBarFilter extends React.Component {
 	}
 }
 
-export default NavBarFilter
+export default NavbarFilter
