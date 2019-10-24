@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
@@ -28,6 +27,9 @@ const ButtonStyled = styled(Button) `
 	&&:hover {
 		background: #43434f;
 		opacity: 0.8;
+	}
+	&&:ripple {
+		display: none;
 	}
 `
 
@@ -62,13 +64,11 @@ class Cards extends React.Component {
 					// subheader={this.props.product.category}
 				/>
 				<CardActions disableActionSpacing>
-					<IconButton>
-						<ButtonStyled 
-						variant="contained" color="secondary"
-						>
-							Quero!
-						</ButtonStyled>
-					</IconButton>
+					<ButtonStyled 
+					variant="contained" color="secondary"
+					>
+					Quero!
+					</ButtonStyled>
 				</CardActions>
 			</StyledCard>
 		)
