@@ -5,9 +5,6 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
 
-
-
-
 const styles = theme => ({
 	container: {
 		display: 'flex',
@@ -41,7 +38,7 @@ const StyledTextField = styled(TextField)`
 `
 
 
-export class Filtros extends React.Component {
+export class Filters extends React.Component {
 	state = {
 	};
 
@@ -77,4 +74,4 @@ export class Filtros extends React.Component {
 
 
 
-export default withStyles(styles)(Filtros)
+export default Filters;
