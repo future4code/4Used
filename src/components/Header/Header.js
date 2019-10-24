@@ -5,9 +5,8 @@ import Logo4used from './4used.png';
 import Sacola from './sacola.png'
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
+import Drawer from '@material-ui/core/Drawer';
 import { withStyles } from '@material-ui/core/styles';
-
-// import ContainerCadastro from './ContainerCadastro/ContainerCadastro.js'
 
 const StyledBadge1 = withStyles(theme => ({
 	badge: {
@@ -21,8 +20,6 @@ const StyledBadge1 = withStyles(theme => ({
 		marginRight: '3px',
 	},
 }))(Badge);
-
-
 
 const StyledHeader = styled.header`
 	background-color: #FF9945;
@@ -86,6 +83,9 @@ const StyledBagImage = styled.img`
 	cursor: pointer;
 `
 
+const StyledDrawer = styled.div`
+	width: 300px;
+`
 
 class Header extends React.Component {
 	constructor(props) {
@@ -96,6 +96,7 @@ class Header extends React.Component {
 			currentPageSale: false,
 			textButton: "VOU VENDER!",
 			badgeNumber: 2,
+			right: false,
 		}
 	}
 
@@ -117,27 +118,58 @@ class Header extends React.Component {
 		})
 	}
 
+	toggleDrawer = (side, open) => () => {
+		this.setState({
+			[side]: open,
+		});
+	};
+
 	render() {
+		const sideList = (
+			<StyledDrawer>
+				
+			</StyledDrawer>
+		);
+
 		return (
 			<React.Fragment>
 				<StyledHeader>
 					<ContainerHeader>
+						
 						<StyledLogo src={Logo4used} alt="Logo 4used" />
+						
 						<StyledInput
 							type="text"
 							placeholder="Pesquise pela loja"
 							value={this.state.searchValue}
 							onChange={this.handleChangeSearch}
 						/>
+
 						<StyledButton
 							onClick={this.onClickButton}
-						>{this.state.textButton}
+						>	
+						{this.state.textButton}
 						</StyledButton>
 					</ContainerHeader>
+
 					<IconButton aria-label="cart">
-						<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
-							<StyledBagImage src={Sacola} />
-						</StyledBadge1>
+						<div>
+							<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
+								<StyledBagImage
+									src={Sacola}
+									onClick={this.toggleDrawer('right', true)}
+								/>
+							</StyledBadge1>
+							<Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+								<div
+									tabIndex={0}
+									role="button"
+									onClick={this.toggleDrawer('right', false)}
+								>
+									{sideList}
+								</div>
+							</Drawer>
+						</div>
 					</IconButton>
 				</StyledHeader>
 			</React.Fragment>
