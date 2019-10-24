@@ -8,6 +8,7 @@ import CardsGrid from './CardsGrid/CardsGrid'
 import NavbarFilter from './NavbarFilter/NavbarFilter'
 
 
+
 const StyledGrid = styled(Grid)`
 	margin-top: 20px;
 `

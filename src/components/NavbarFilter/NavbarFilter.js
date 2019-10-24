@@ -7,9 +7,10 @@ import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import { createMuiTheme } from '@material-ui/core/styles'
 import purple from '@material-ui/core/colors/purple'
-import { Filtros } from './components/Filtros'
+import Filters from './Filters'
 import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
+
 
 function TabContainer({ children, dir }) {
 	return (
@@ -110,9 +111,9 @@ export class NavbarFilter extends React.Component {
 
 				</Tabs>
 
-				{value === 1 && <Filtros />}
-				{value === 2 && <Filtros />}
-				{value === 3 && <Filtros />}
+				{value === 1 && <Filters />}
+				{value === 2 && <Filters />}
+				{value === 3 && <Filters />}
 
 			</Paper>
 
