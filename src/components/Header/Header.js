@@ -114,12 +114,6 @@ class Header extends React.Component {
 					</StyledButton>
 					</ContainerHeader>
 				</StyledHeader>
-				{this.state.currentPageHome
-					&& <TesteCondicional/>
-				}
-				{this.state.currentPageSale
-					&& <TesteCondicional2/>
-				}
 
 			</React.Fragment>
 		)
