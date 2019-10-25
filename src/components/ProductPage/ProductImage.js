@@ -19,40 +19,32 @@ export default class ProductImage extends Component {
     super(props);
 
     this.state = {
-      image: this.props.images[0].url
+      image: this.props.images[0]
     };
   }
 
   handleImgClick = e => {
     this.setState({
-      image: this.props.images[e.target.id].url
+      image: this.props.images[e.target.id]
     });
-  };
+	};
+	
   render() {
+			const images = this.props.images.map((image, index) => {
+				return (
+					<Grid item>
+					<StyledImg
+						src={image}
+						onClick={this.handleImgClick}
+						id={index}
+					/>
+				 </Grid> 
+				)
+			})
     return (
       <Grid container spacing={8}>
         <Grid item container spacing={8} direction="column" xs={3}>
-          <Grid item>
-            <StyledImg
-              src={this.props.images[0].url}
-              onClick={this.handleImgClick}
-              id="0"
-            />
-          </Grid>
-          <Grid item>
-            <StyledImg
-              src={this.props.images[1].url}
-              id="1"
-              onClick={this.handleImgClick}
-            />
-          </Grid>
-          <Grid item>
-            <StyledImg
-              src={this.props.images[2].url}
-              id="2"
-              onClick={this.handleImgClick}
-            />
-          </Grid>
+          {images}
         </Grid>
         <StyledGrid item xs={9}>
           <StyledImg src={this.state.image} />

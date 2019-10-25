@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import styled from 'styled-components';
-import 'typeface-roboto';
-import Logo4used from './4used.png';
-import Sacola from './sacola.png'
-import Badge from '@material-ui/core/Badge';
-import IconButton from '@material-ui/core/IconButton';
-import Drawer from '@material-ui/core/Drawer';
-import { withStyles } from '@material-ui/core/styles';
-import { RegisterContainer } from '../CadastroDeProdutos/RegisterContainer';
-
-=======
 import React from "react";
 import styled from "styled-components";
 import "typeface-roboto";
@@ -20,7 +7,6 @@ import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import { withStyles } from "@material-ui/core/styles";
-import { ContainerCadastro } from "../CadastroDeProdutos/ContainerCadastro";
 import Cart from "./Cart/Cart";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -89,7 +75,6 @@ const mockDeCarrinho = [
     img: "https://picsum.photos/400/300"
   }
 ];
->>>>>>> Sacolinha card layout; Input e Button do Header;
 
 const StyledBadge1 = withStyles(theme => ({
   badge: {
@@ -150,72 +135,21 @@ class Header extends React.Component {
     super(props);
     this.state = {
       searchValue: "",
-      currentPageHome: true,
-      currentPageSale: false,
-      textButton: "VOU VENDER!",
       badgeNumber: 2,
       right: false
     };
   }
 
-<<<<<<< HEAD
-					<IconButton aria-label="cart">
-						<div>
-							<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
-								<StyledBagImage
-									src={Sacola}
-									onClick={this.toggleDrawer('right', true)}
-								/>
-							</StyledBadge1>
-							<Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
-								<div
-									tabIndex={0}
-									role="button"
-									onClick={this.toggleDrawer('right', false)}
-								>
-									{sideList}
-								</div>
-							</Drawer>
-						</div>
-					</IconButton>
-				</StyledHeader>
-				{this.state.currentPageSale
-				&& <RegisterContainer/>}
-			</React.Fragment>
-		)
-	}
-=======
   handleChangeSearch = event => {
     this.setState({ searchValue: event.target.value });
   };
 
-  onClickButton = () => {
-    this.setState(
-      {
-        currentPageHome: !this.state.currentPageHome,
-        currentPageSale: !this.state.currentPageSale
-      },
-      () => this.changeButtonText()
-    );
-  };
-
-  changeButtonText = () => {
-    this.setState({
-      textButton: this.state.currentPageHome ? "VOU VENDER!" : "QUERO COMPRAR!"
-    });
-  };
-
-  toggleDrawer = (side, open) => () => {
+   toggleDrawer = (side, open) => () => {
     this.setState({
       [side]: open
     });
   };
 
-  /*                /* <div
-                  tabIndex={0}
-                  role="button"
-                  onClick={this.toggleDrawer("right", false)}
-                > */
   render() {
     return (
       <React.Fragment>
@@ -233,7 +167,6 @@ class Header extends React.Component {
             <StyledButton
               variant="contained"
               color="primary"
-              onClick={this.onClickButton}
             >
               {this.state.textButton}
             </StyledButton>
@@ -258,11 +191,9 @@ class Header extends React.Component {
             </div>
           </IconButton>
         </StyledHeader>
-        {this.state.currentPageSale && <ContainerCadastro />}
       </React.Fragment>
     );
   }
->>>>>>> Sacolinha card layout; Input e Button do Header;
 }
 
 export default Header;

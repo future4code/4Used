@@ -5,8 +5,8 @@ import Masonry from 'react-masonry-css';
 import Card from './Card/Card'
 
 const GridContainer = styled.div`
-	max-width: 80vw;
-	margin: auto;
+	display: flex;
+	flex-direction: column;
 `
 const MasonryStyled = styled(Masonry)`
   display: -webkit-box;
@@ -17,6 +17,7 @@ const MasonryStyled = styled(Masonry)`
 	padding-left: 30px;
 	background-clip: padding-box;
 	background-color: #fcd991;
+	flex-grow: 1;
 `
 
 const Item = styled.div`
@@ -37,18 +38,23 @@ class CardsGrid extends React.Component {
 		super(props)
 	}
 
-	handleProductScreenVisibility = () => {
-		this.props.showProductPage();
+	handleProductScreenVisibility = (index) => {
+		this.props.showProductPage(index);
 	}
 
 	render() {
 		const data = this.props.products;
-		const items = data.map((item) => {
+		const items = data.map((item, index) => {
 			return (
 				<Item key={item.index}>
-					<Card changeScreen={this.handleProductScreenVisibility} product={item}/>
+					<Card
+						changeScreen={this.handleProductScreenVisibility}
+						product={item}
+						callbackId={index} 
+						/>
 				</Item>
-		)})
+			)
+		})
 		return (
 
 			<GridContainer>

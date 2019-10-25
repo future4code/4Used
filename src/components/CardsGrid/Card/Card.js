@@ -50,7 +50,7 @@ class Cards extends React.Component {
 	}
 
 	onClickBtn = () => {
-		this.props.changeScreen();
+		this.props.changeScreen(this.props.callbackId);
 	}
 
 	render() {

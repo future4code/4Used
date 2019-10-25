@@ -12,18 +12,19 @@ import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
 
 
-function TabContainer({ children, dir }) {
-	return (
-		<Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
-			{children}
-		</Typography>
-	)
-}
+// function TabContainer({ children, dir }) {
+// 	return (
+// 		<Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+// 			{children}
+// 		</Typography>
+// 	)
+// }
 
-TabContainer.propTypes = {
-	children: PropTypes.node.isRequired,
-	dir: PropTypes.string.isRequired,
-};
+// TabContainer.propTypes = {
+// 	children: PropTypes.node.isRequired,
+// 	dir: PropTypes.string.isRequired,
+// };
+
 
 const NomeLojaWrapper = styled.div`
 	display: flex;
@@ -86,37 +87,35 @@ export class NavbarFilter extends React.Component {
 		const { value } = this.state
 
 		return (
+			
+				<Paper>
+					<NomeLojaWrapper>
+						<NomeLoja>4Used</NomeLoja>
+						<SubtituloLoja>Old is Cool</SubtituloLoja>
+					</NomeLojaWrapper>
 
-			<Paper>
-				<NomeLojaWrapper>
-					<NomeLoja>4Used</NomeLoja>
-					<SubtituloLoja>Autonomia para se expressar conforme a sua vontade</SubtituloLoja>
-				</NomeLojaWrapper>
+					<Tabs
+						value={value}
+						onChange={this.handleChange}
+						centered
+					>
+						<Tab label="Início" />
+						<Tab label="Roupas" />
+						<Tab label="Acessórios" />
+						<Tab label="Bugigangas" />
 
-				<Tabs
-					value={value}
-					onChange={this.handleChange}
-					centered
-				>
-					<Tab label="Início" />
-					<Tab label="Roupas" />
-					<Tab label="Acessórios" />
-					<Tab label="Bugigangas" />
+						<StyledButton onClick={this.changeButtonTxt} theme={theme}>
+							<Button variant="contained" color="secondary">
+								{textoBtn}
+							</Button>
+						</StyledButton>
 
-					<StyledButton onClick={this.changeButtonTxt} theme={theme}>
-						<Button variant="contained" color="secondary">
-							{textoBtn}
-						</Button>
-					</StyledButton>
+					</Tabs>
 
-				</Tabs>
-
-				{value === 1 && <Filters />}
-				{value === 2 && <Filters />}
-				{value === 3 && <Filters />}
-
-			</Paper>
-
+					{value === 1 && <Filters />}
+					{value === 2 && <Filters />}
+					{value === 3 && <Filters />}
+				</Paper>
 		)
 	}
 }
