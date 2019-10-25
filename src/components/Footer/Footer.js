@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import styled from 'styled-components';
 import 'typeface-roboto';
@@ -9,13 +10,12 @@ import TwitterLogo from './twitter.png'
 
 const StyledFooter = styled.div`
 	width: 100%;
-	position: absolute;
 	bottom: 0;
-	
 	background-color: #FBF3EE;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 20px;
 `
 const FooterContainer = styled.div`
 	width: 80%;
@@ -41,7 +41,7 @@ function Footer(props) {
 		<StyledFooter>
 			<FooterContainer>
 				<StyledLogo src={Logo4used} />
-				<span>&copy;4used Todos os direitos reservados.</span>
+				<span>&copy;4used. Todos os direitos reservados.</span>
 				<div>
 					<a href="https://www.instagram.com/4used_/" target="blank"><StyledSocialMedia src={InstagramLogo} /></a>
 					<a href="https://facebook.com" target="blank"><StyledSocialMedia src={FacebookLogo} /></a>
