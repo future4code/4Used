@@ -61,7 +61,6 @@ class Cards extends React.Component {
 				<CardHeaderStyled 
 					disableTypography
 					title={this.props.product.name}
-					// subheader={this.props.product.category}
 				/>
 				<CardActions disableActionSpacing>
 					<ButtonStyled 
