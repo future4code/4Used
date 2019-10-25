@@ -46,6 +46,47 @@ const mockDeCarrinho = [
     price: 10,
     qnt: 2,
     img: "https://picsum.photos/400/300"
+  },
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
+  },
+  ,
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
+  },
+  ,
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
+  },
+  ,
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
+  },
+  ,
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
+  },
+  ,
+  {
+    name: "Bicicleta",
+    price: 10,
+    qnt: 2,
+    img: "https://picsum.photos/400/300"
   }
 ];
 >>>>>>> Sacolinha card layout; Input e Button do Header;
