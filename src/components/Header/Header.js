@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from "react";
 import styled from "styled-components";
 import "typeface-roboto";
@@ -15,73 +16,73 @@ import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 const mockDeCarrinho = [
-  {
-    name: "Bicicleta",
-    price: 70,
-    qnt: 2,
-    img: "https://picsum.photos/200/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 70,
-    qnt: 3,
-    img: "https://picsum.photos/300/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  },
-  {
-    name: "Bicicleta",
-    price: 10,
-    qnt: 2,
-    img: "https://picsum.photos/400/300"
-  }
+	{
+		name: "Bicicleta",
+		price: 70,
+		qnt: 2,
+		img: "https://picsum.photos/200/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 70,
+		qnt: 3,
+		img: "https://picsum.photos/300/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	},
+	{
+		name: "Bicicleta",
+		price: 10,
+		qnt: 2,
+		img: "https://picsum.photos/400/300"
+	}
 ];
 
 const StyledBadge1 = withStyles(theme => ({
-  badge: {
-    right: -3,
-    border: "1px solid black",
-    backgroundColor: "red",
-    padding: "0 4px",
-    color: "white",
-    fontWeight: "bold",
-    marginTop: "10px",
-    marginRight: "3px"
-  }
+	badge: {
+		right: -3,
+		border: "1px solid black",
+		backgroundColor: "red",
+		padding: "0 4px",
+		color: "white",
+		fontWeight: "bold",
+		marginTop: "10px",
+		marginRight: "3px"
+	}
 }))(Badge);
 
 const StyledHeader = styled.header`
@@ -92,14 +93,17 @@ const StyledHeader = styled.header`
   align-items: center;
   box-shadow: 0 0 3px 0 #43434f;
 `;
+
 const ContainerHeader = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #ff9945;
   width: 80%;
+  height: 80px;
   margin-left: 5%;
 `;
+
 const StyledLogo = styled.img`
   width: 80px;
   cursor: pointer;
@@ -111,9 +115,16 @@ const StyledLogo = styled.img`
 `;
 
 const StyledButton = styled(Button)`
-  width: 200px;
+  width: 150px;
   height: 50px;
-`;
+  box-shadow: 1px 1px 5px black;
+`
+const StyledButtonFinalizar = styled(Button)`
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+`
+
 const StyledBagImage = styled.img`
   cursor: pointer;
 `;
@@ -121,9 +132,12 @@ const StyledBagImage = styled.img`
 const StyledInput = styled(InputBase)`
   padding: 10px;
   width: 90%;
+  height: 1px;
 `;
 const StyledPaper = styled(Paper)`
   width: 40%;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledDiv = styled.div`
@@ -133,94 +147,113 @@ const StyledDiv = styled.div`
   flex: 1 0 15%;
   background: white;
 `;
+
+const BoldTxt = styled.p`
+	font-weight: bold;
+	margin: 10px;
+`
+
 const StyledDrawer = styled(Drawer)`
 display: flex;
 flex-direction:column;
 `;
+
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: "",
-      currentPageHome: true,
-      currentPageSale: false,
-      textButton: "VOU VENDER!",
-      badgeNumber: 2,
-	  right: false,
-	  total: 0
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			searchValue: "",
+			currentPageHome: true,
+			currentPageSale: false,
+			textButton: "VOU VENDER!",
+			badgeNumber: 2,
+			right: false,
+			total: 0
+		};
+	}
 
-  handleChangeSearch = event => {
-    this.setState({ searchValue: event.target.value });
-  };
+	handleChangeSearch = event => {
+		this.setState({ searchValue: event.target.value });
+	};
 
-  toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open
-    });
-  };
-handleChangeValue = (value) =>{
-	this.setState({total: value});
-}
-  render() {
-    return (
-      <React.Fragment>
-        <StyledHeader>
-          <ContainerHeader>
-            <StyledLogo src={Logo4used} alt="Logo 4used" />
+	reloadPage = () => {
+		window.location.reload();
+	}
 
-            <StyledPaper elevation={1}>
-              <StyledInput placeholder="Buscar produtos..." />
-              <IconButton aria-label="Search">
-                <SearchIcon />
-              </IconButton>
-              <Divider />
-            </StyledPaper>
-            <StyledButton
-              variant="contained"
-              color="primary"
-              onClick={this.onClickButton}
-            >
-              {this.state.textButton}
-            </StyledButton>
-          </ContainerHeader>
+	toggleDrawer = (side, open) => () => {
+		this.setState({
+			[side]: open
+		});
+	};
+	handleChangeValue = (value) => {
+		this.setState({ total: value });
+	}
+	render() {
+		return (
+			<React.Fragment>
+				<StyledHeader>
+					<ContainerHeader>
+						<StyledLogo 
+							src={Logo4used} 
+							alt="Logo 4used"
+							onClick={this.reloadPage} />
 
-          <IconButton aria-label="cart">
-            <div>
-              <StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
-                <StyledBagImage
-                  src={Sacola}
-                  onClick={this.toggleDrawer("right", true)}
-                />
-              </StyledBadge1>
-              <StyledDrawer
-                anchor="right"
-                open={this.state.right}
-                onClose={this.toggleDrawer("right", false)}
-              >
-                <Cart products={mockDeCarrinho} onChangeValue={this.handleChangeValue}/>
-                <StyledDiv>
-				<Divider light />
-                  <Grid container spacing={4}>
-					  <Grid item xs={6}>
-						  Total
-					  </Grid>
-					  <Grid item xs={6}>
-						  R$ {this.state.total}
-					  </Grid>
-					  <Grid item xs={12}>
-						  BUTONN
-					  </Grid>
-				  </Grid>
-                </StyledDiv>
-              </StyledDrawer>
-            </div>
-          </IconButton>
-        </StyledHeader>
-      </React.Fragment>
-    );
-  }
+						<StyledPaper elevation={4}>
+							<StyledInput placeholder="Buscar produtos..." />
+							<IconButton aria-label="Search">
+								<SearchIcon />
+							</IconButton>
+							<Divider />
+						</StyledPaper>
+						<StyledButton
+							variant="contained"
+							color="primary"
+							onClick={this.onClickButton}
+						>
+							{this.state.textButton}
+						</StyledButton>
+					</ContainerHeader>
+
+					<IconButton aria-label="cart">
+						<div>
+							<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
+								<StyledBagImage
+									src={Sacola}
+									onClick={this.toggleDrawer("right", true)}
+								/>
+							</StyledBadge1>
+							<StyledDrawer
+								anchor="right"
+								open={this.state.right}
+								onClose={this.toggleDrawer("right", false)}
+							>
+								<Cart products={mockDeCarrinho} onChangeValue={this.handleChangeValue} />
+								<StyledDiv>
+									<Divider light />
+									<Grid container spacing={4}>
+										<Grid item xs={6}>
+										<BoldTxt> Total</BoldTxt>
+										</Grid>
+										<Grid item xs={6}>
+										<BoldTxt>R$ {this.state.total}</BoldTxt>
+										</Grid>
+										<Grid item xs={12}>
+											<StyledButtonFinalizar
+												variant="contained"
+												color="primary"
+											>
+												Finalizar
+											</StyledButtonFinalizar>
+										</Grid>
+									</Grid>
+								</StyledDiv>
+							</StyledDrawer>
+						</div>
+					</IconButton>
+				</StyledHeader>
+			</React.Fragment>
+		);
+	}
 }
 
 export default Header;
