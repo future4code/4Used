@@ -7,7 +7,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 
-const CadastroDadosContainer = styled.div`
+const DataRegisterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -36,9 +36,9 @@ const SendButton = styled(Button)`
 	margin-top: 50px;
 `
 
-export function CadastroDados(props){
+export function DataRegister(props){
 	return (
-			<CadastroDadosContainer>
+			<DataRegisterContainer>
 				<h1>Nos fale mais sobre seu produto!</h1>
 				<p>
 					Tá na hora de vender o peixe! Coloque informações do seu produto.
@@ -102,7 +102,7 @@ export function CadastroDados(props){
 				>
 					Enviar
 				</SendButton>
-			</CadastroDadosContainer>
+			</DataRegisterContainer>
 		)
 }
 

@@ -10,7 +10,7 @@ const Title = styled.h1`
 	font-size: 4rem;
 `
 
-const CadastroImageContainer = styled.div`
+const ImageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,7 +53,7 @@ const StyledButton = styled(Button)`
 	margin-top: 50px;
 `
 
-export class CadastroImage extends React.Component {
+export class ImageRegister extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -95,7 +95,7 @@ export class CadastroImage extends React.Component {
 		})
 
 		return (
-			<CadastroImageContainer>
+			<ImageContainer>
 				<Title>Eu quero ibagens!</Title>
 				<p>
 					Cadastre imagens do que você quer vender,
@@ -129,7 +129,7 @@ export class CadastroImage extends React.Component {
 						Continuar
 			</StyledButton>
 				</div>
-			</CadastroImageContainer>
+			</ImageContainer>
 		)
 	}
 

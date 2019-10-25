@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CadastroImage } from './CadastroImage';
-import { CadastroDados } from './CadastroDados';
+import { ImageRegister } from './ImageRegister';
+import { DataRegister } from './DataRegister';
 import axios from 'axios';
 
 
@@ -13,11 +13,11 @@ const MainContainer = styled.div`
 	align-items: center;
 `
 
-export class ContainerCadastro extends React.Component {
+export class RegisterContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			cadastroImageView: true,
+			ImageRegisterView: true,
 			productsPhotos: [],
 			nameProduct: '',
 			priceProduct: '',
@@ -29,7 +29,7 @@ export class ContainerCadastro extends React.Component {
 	}
 
 	changeUI = () => {
-		this.setState({ cadastroImageView: !this.state.cadastroImageView })
+		this.setState({ ImageRegisterView: !this.state.ImageRegisterView })
 
 	}
 
@@ -107,12 +107,12 @@ export class ContainerCadastro extends React.Component {
 
 	render() {
 		
-		const atualUI = this.state.cadastroImageView ? (
-			<CadastroImage
+		const atualUI = this.state.ImageRegisterView ? (
+			<ImageRegister
 				onSend={this.handleImages}
-			></CadastroImage>
+			></ImageRegister>
 		) : (
-				<CadastroDados
+				<DataRegister
 				nameProduct={this.state.nameProduct}
 				onChangeNameProduct={this.onChangeNameProduct}
 				
@@ -133,7 +133,7 @@ export class ContainerCadastro extends React.Component {
 				
 				onCLickSendButton={this.sendButtonClick}
 				>
-				</CadastroDados>)
+				</DataRegister>)
 
 		return (
 			<MainContainer>
