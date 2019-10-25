@@ -32,10 +32,13 @@ const breakpointColumnsObj = {
 };
 
 
-
 class CardsGrid extends React.Component {
 	constructor(props) {
 		super(props)
+	}
+
+	handleProductScreenVisibility = () => {
+		this.props.showProductPage();
 	}
 
 	render() {
@@ -43,7 +46,7 @@ class CardsGrid extends React.Component {
 		const items = data.map((item) => {
 			return (
 				<Item key={item.index}>
-					<Card product={item}/>
+					<Card changeScreen={this.handleProductScreenVisibility} product={item}/>
 				</Item>
 		)})
 		return (

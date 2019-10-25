@@ -7,7 +7,7 @@ import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import Drawer from '@material-ui/core/Drawer';
 import { withStyles } from '@material-ui/core/styles';
-import { ContainerCadastro } from '../CadastroDeProdutos/ContainerCadastro';
+import { RegisterContainer } from '../CadastroDeProdutos/RegisterContainer';
 
 
 const StyledBadge1 = withStyles(theme => ({
@@ -175,7 +175,7 @@ class Header extends React.Component {
 					</IconButton>
 				</StyledHeader>
 				{this.state.currentPageSale
-				&& <ContainerCadastro/>}
+				&& <RegisterContainer/>}
 			</React.Fragment>
 		)
 	}
