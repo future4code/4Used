@@ -96,12 +96,11 @@ const StyledHeader = styled.header`
 
 const ContainerHeader = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #ff9945;
-  width: 80%;
-  height: 80px;
-  margin-left: 5%;
+  width: 100%;
+	height: 80px;
 `;
 
 const StyledLogo = styled.img`
@@ -111,13 +110,17 @@ const StyledLogo = styled.img`
 
   &:hover {
     transform: scale(1.2);
-  }
+	}
+	margin-left: 10px;
 `;
 
 const StyledButton = styled(Button)`
   width: 150px;
   height: 50px;
-  box-shadow: 1px 1px 5px black;
+	box-shadow: 1px 1px 5px black;
+	margin-right: 10px;
+	background-color: #fcd991;
+	color: #43434f;
 `
 const StyledButtonFinalizar = styled(Button)`
   width: 100px;
@@ -163,8 +166,6 @@ class Header extends React.Component {
 		super(props);
 		this.state = {
 			searchValue: "",
-			currentPageHome: true,
-			currentPageSale: false,
 			textButton: "VOU VENDER!",
 			badgeNumber: 2,
 			right: false,
@@ -185,9 +186,15 @@ class Header extends React.Component {
 			[side]: open
 		});
 	};
+	
 	handleChangeValue = (value) => {
 		this.setState({ total: value });
 	}
+	
+	onClickButton = () => {
+		this.props.showRegisterPage();
+	}
+
 	render() {
 		return (
 			<React.Fragment>

@@ -94,7 +94,7 @@ export class AppContainer extends React.Component {
 	render() {
 		return (
 			<AppComponentsContainer>
-				<Header />
+				<Header showRegisterPage={this.showRegisterPage}/>
 				<NavbarFilter />
 				<StyledGrid container justify="center" spacing={0}>
 					<Grid item xs={12} sm={12} lg={8}>
