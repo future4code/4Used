@@ -12,11 +12,6 @@ import { RegisterContainer } from "./CadastroDeProdutos/RegisterContainer";
 const AppComponentsContainer = styled.div`
 
 `
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2aa3b1977e0a76ba4390944b850e171e2ed1b6c9
 const StyledGrid = styled(Grid)`
   margin-top: 20px;
 `

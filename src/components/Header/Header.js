@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable linebreak-style */
->>>>>>> 2aa3b1977e0a76ba4390944b850e171e2ed1b6c9
 import React from "react";
 import styled from "styled-components";
 import "typeface-roboto";
@@ -162,71 +159,6 @@ flex-direction:column;
 `;
 
 class Header extends React.Component {
-<<<<<<< HEAD
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: "",
-      badgeNumber: 2,
-      right: false
-    };
-  }
-
-  handleChangeSearch = event => {
-    this.setState({ searchValue: event.target.value });
-  };
-
-   toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open
-    });
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        <StyledHeader>
-          <ContainerHeader>
-            <StyledLogo src={Logo4used} alt="Logo 4used" />
-
-            <StyledPaper elevation={1}>
-              <StyledInput placeholder="Buscar produtos..." />
-              <IconButton aria-label="Search">
-                <SearchIcon />
-              </IconButton>
-              <Divider />
-            </StyledPaper>
-            <StyledButton
-              variant="contained"
-              color="primary"
-            >
-              {this.state.textButton}
-            </StyledButton>
-          </ContainerHeader>
-
-          <IconButton aria-label="cart">
-            <div>
-              <StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
-                <StyledBagImage
-                  src={Sacola}
-                  onClick={this.toggleDrawer("right", true)}
-                />
-              </StyledBadge1>
-              <Drawer
-                anchor="right"
-                open={this.state.right}
-                onClose={this.toggleDrawer("right", false)}
-              >
-
-                  <Cart products={mockDeCarrinho} />
-              </Drawer>
-            </div>
-          </IconButton>
-        </StyledHeader>
-      </React.Fragment>
-    );
-  }
-=======
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -322,7 +254,6 @@ class Header extends React.Component {
 			</React.Fragment>
 		);
 	}
->>>>>>> 2aa3b1977e0a76ba4390944b850e171e2ed1b6c9
 }
 
 export default Header;
