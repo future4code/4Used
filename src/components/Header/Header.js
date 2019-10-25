@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import styled from 'styled-components';
-import 'typeface-roboto';
-import Logo4used from './4used.png';
-import Sacola from './sacola.png'
-import Badge from '@material-ui/core/Badge';
-import IconButton from '@material-ui/core/IconButton';
-import Drawer from '@material-ui/core/Drawer';
-import { withStyles } from '@material-ui/core/styles';
-import { RegisterContainer } from '../CadastroDeProdutos/RegisterContainer';
-
-=======
 import React from "react";
 import styled from "styled-components";
 import "typeface-roboto";
@@ -20,14 +7,13 @@ import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import { withStyles } from "@material-ui/core/styles";
-import { ContainerCadastro } from "../CadastroDeProdutos/ContainerCadastro";
 import Cart from "./Cart/Cart";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
-
+import Grid from "@material-ui/core/Grid";
 const mockDeCarrinho = [
   {
     name: "Bicicleta",
@@ -53,35 +39,30 @@ const mockDeCarrinho = [
     qnt: 2,
     img: "https://picsum.photos/400/300"
   },
-  ,
   {
     name: "Bicicleta",
     price: 10,
     qnt: 2,
     img: "https://picsum.photos/400/300"
   },
-  ,
   {
     name: "Bicicleta",
     price: 10,
     qnt: 2,
     img: "https://picsum.photos/400/300"
   },
-  ,
   {
     name: "Bicicleta",
     price: 10,
     qnt: 2,
     img: "https://picsum.photos/400/300"
   },
-  ,
   {
     name: "Bicicleta",
     price: 10,
     qnt: 2,
     img: "https://picsum.photos/400/300"
   },
-  ,
   {
     name: "Bicicleta",
     price: 10,
@@ -89,7 +70,6 @@ const mockDeCarrinho = [
     img: "https://picsum.photos/400/300"
   }
 ];
->>>>>>> Sacolinha card layout; Input e Button do Header;
 
 const StyledBadge1 = withStyles(theme => ({
   badge: {
@@ -145,6 +125,18 @@ const StyledInput = styled(InputBase)`
 const StyledPaper = styled(Paper)`
   width: 40%;
 `;
+
+const StyledDiv = styled.div`
+  position: sticky;
+  bottom: 0;
+  margin-top: 1px;
+  flex: 1 0 15%;
+  background: white;
+`;
+const StyledDrawer = styled(Drawer)`
+display: flex;
+flex-direction:column;
+`;
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -154,55 +146,13 @@ class Header extends React.Component {
       currentPageSale: false,
       textButton: "VOU VENDER!",
       badgeNumber: 2,
-      right: false
+	  right: false,
+	  total: 0
     };
   }
 
-<<<<<<< HEAD
-					<IconButton aria-label="cart">
-						<div>
-							<StyledBadge1 badgeContent={this.state.badgeNumber} color="red">
-								<StyledBagImage
-									src={Sacola}
-									onClick={this.toggleDrawer('right', true)}
-								/>
-							</StyledBadge1>
-							<Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
-								<div
-									tabIndex={0}
-									role="button"
-									onClick={this.toggleDrawer('right', false)}
-								>
-									{sideList}
-								</div>
-							</Drawer>
-						</div>
-					</IconButton>
-				</StyledHeader>
-				{this.state.currentPageSale
-				&& <RegisterContainer/>}
-			</React.Fragment>
-		)
-	}
-=======
   handleChangeSearch = event => {
     this.setState({ searchValue: event.target.value });
-  };
-
-  onClickButton = () => {
-    this.setState(
-      {
-        currentPageHome: !this.state.currentPageHome,
-        currentPageSale: !this.state.currentPageSale
-      },
-      () => this.changeButtonText()
-    );
-  };
-
-  changeButtonText = () => {
-    this.setState({
-      textButton: this.state.currentPageHome ? "VOU VENDER!" : "QUERO COMPRAR!"
-    });
   };
 
   toggleDrawer = (side, open) => () => {
@@ -210,12 +160,9 @@ class Header extends React.Component {
       [side]: open
     });
   };
-
-  /*                /* <div
-                  tabIndex={0}
-                  role="button"
-                  onClick={this.toggleDrawer("right", false)}
-                > */
+handleChangeValue = (value) =>{
+	this.setState({total: value});
+}
   render() {
     return (
       <React.Fragment>
@@ -247,22 +194,33 @@ class Header extends React.Component {
                   onClick={this.toggleDrawer("right", true)}
                 />
               </StyledBadge1>
-              <Drawer
+              <StyledDrawer
                 anchor="right"
                 open={this.state.right}
                 onClose={this.toggleDrawer("right", false)}
               >
-
-                  <Cart products={mockDeCarrinho} />
-              </Drawer>
+                <Cart products={mockDeCarrinho} onChangeValue={this.handleChangeValue}/>
+                <StyledDiv>
+				<Divider light />
+                  <Grid container spacing={4}>
+					  <Grid item xs={6}>
+						  Total
+					  </Grid>
+					  <Grid item xs={6}>
+						  R$ {this.state.total}
+					  </Grid>
+					  <Grid item xs={12}>
+						  BUTONN
+					  </Grid>
+				  </Grid>
+                </StyledDiv>
+              </StyledDrawer>
             </div>
           </IconButton>
         </StyledHeader>
-        {this.state.currentPageSale && <ContainerCadastro />}
       </React.Fragment>
     );
   }
->>>>>>> Sacolinha card layout; Input e Button do Header;
 }
 
 export default Header;
