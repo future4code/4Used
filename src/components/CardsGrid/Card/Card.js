@@ -49,6 +49,10 @@ class Cards extends React.Component {
 		super(props)
 	}
 
+	onClickBtn = () => {
+		this.props.changeScreen();
+	}
+
 	render() {
 
 		return (
@@ -65,6 +69,7 @@ class Cards extends React.Component {
 				<CardActions disableActionSpacing>
 					<ButtonStyled 
 					variant="contained" color="secondary"
+					onClick={this.onClickBtn}
 					>
 					Quero!
 					</ButtonStyled>
