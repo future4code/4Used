@@ -31,6 +31,14 @@ const StyledIconButton = styled(IconButton)`
 `;
 
 export default class CartCard extends Component {
+	constructor(props) {
+		super(props)
+	
+		this.state = {
+			 
+		}
+	}
+	
   handleAdd = () => {
     this.props.onAdd(this.props.callbackId);
   };
@@ -38,9 +46,10 @@ export default class CartCard extends Component {
     this.props.onRemove(this.props.callbackId);
   };
   handleDelete = () => {
-    this.props.onDelete(this.props.callbackId);
+   this.props.onDelete(this.props.callbackId);
   };
   render() {
+	  debugger;
     return (
       <Card>
         <StyledCardActionArea>
